@@ -1,0 +1,28 @@
+# render.yaml (Final Version for Free Tier)
+
+services:
+  # Service 1: The Python Web App
+  - type: web
+    name: riskwatch-app
+    env: python
+    plan: free
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn --workers 4 --bind 0.0.0.0:$PORT app:server"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11
+      - key: SECRET_KEY
+        generateValue: true
+      - key: GEMINI_API_KEY
+        sync: false # Set this in the Render dashboard
+      - key: DATABASE_URL
+        fromService:
+          type: psql # This is the correct type for the service reference
+          name: riskwatch-db
+          property: connectionString
+
+  # Service 2: The PostgreSQL Database
+  - type: psql # This is the correct service type for a free-tier database
+    name: riskwatch-db
+    plan: free
+    postgresMajorVersion: 14

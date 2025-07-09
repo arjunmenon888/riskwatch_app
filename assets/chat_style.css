@@ -1,0 +1,168 @@
+/* --- RiskWatch Custom Theme: Yellow, White, Black --- */
+
+:root {
+  --riskwatch-yellow: #FFC107; /* A standard, strong yellow */
+  --riskwatch-light-gray: #f0f2f5; /* WhatsApp-like background */
+  --riskwatch-border-color: #e9edef;
+  --riskwatch-text-primary: #111b21;
+  --riskwatch-text-secondary: #667781;
+  --bubble-received-bg: #ffffff;
+  --bubble-sent-bg: #fff0b3; /* A soft yellow for sent messages */
+}
+
+body {
+  background-color: var(--riskwatch-light-gray);
+  color: var(--riskwatch-text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* --- Main Layout Structure --- */
+.sidebar {
+  background-color: white;
+  border-right: 1px solid var(--riskwatch-border-color);
+}
+
+.chat-pane {
+  background-image: url('https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png'); /* Subtle background pattern */
+  background-color: var(--riskwatch-light-gray);
+}
+
+/* --- Sidebar Components --- */
+.sidebar-header {
+  background-color: #f0f2f5; /* Match body background */
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--riskwatch-border-color);
+}
+
+.contact-item {
+  background-color: white;
+  border: none;
+  border-bottom: 1px solid var(--riskwatch-border-color) !important;
+  padding: 12px 16px !important;
+  cursor: pointer;
+}
+
+.contact-item:hover {
+  background-color: var(--riskwatch-light-gray);
+}
+
+.contact-item .contact-name {
+  font-weight: 500;
+  color: var(--riskwatch-text-primary);
+}
+
+.contact-item .last-message {
+  color: var(--riskwatch-text-secondary);
+  font-size: 0.9rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.contact-item .message-time {
+    color: var(--riskwatch-text-secondary);
+    font-size: 0.8rem;
+    margin-left: auto;
+}
+
+/* --- Chat Pane Components --- */
+.chat-header {
+  background-color: #f0f2f5;
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--riskwatch-border-color);
+}
+
+.chat-header .contact-name {
+    font-weight: 500;
+}
+
+.chat-header .contact-status {
+    font-size: 0.85rem;
+    color: var(--riskwatch-text-secondary);
+}
+
+.chat-header .header-icon {
+    font-size: 1.2rem;
+    color: var(--riskwatch-text-secondary);
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.chat-header .header-icon:hover {
+    color: var(--riskwatch-text-primary);
+}
+
+/* --- FIX: Remove styling from #chat-history as it is now just a container --- */
+#chat-history {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+
+/* --- Message Bubbles --- */
+.message-bubble {
+  padding: 8px 12px;
+  border-radius: 8px;
+  margin-bottom: 5px;
+  max-width: 65%;
+  word-wrap: break-word;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+.message-bubble.sent {
+  background-color: var(--bubble-sent-bg);
+  align-self: flex-end; /* Ensures it sticks to the right in the flex container */
+}
+
+.message-bubble.received {
+  background-color: var(--bubble-received-bg);
+  align-self: flex-start; /* Ensures it sticks to the left */
+}
+
+.message-user {
+  font-weight: bold;
+  color: var(--riskwatch-yellow);
+  margin-bottom: 4px;
+  font-size: 0.9em;
+}
+
+.message-text {
+  margin-bottom: 5px;
+  color: var(--riskwatch-text-primary);
+}
+
+.message-timestamp {
+  font-size: 0.75rem;
+  color: var(--riskwatch-text-secondary);
+  text-align: right;
+  float: right;
+  margin-left: 10px;
+}
+
+/* This is the parent for the bubble, which itself is a flex container */
+.message-alignment-container {
+    display: flex;
+    width: 100%;
+}
+
+.message-alignment-container.sent {
+    justify-content: flex-end;
+}
+
+.message-alignment-container.received {
+    justify-content: flex-start;
+}
+
+/* --- Message Input Area --- */
+.message-input-area {
+  background-color: #f0f2f5;
+  padding: 10px 20px;
+}
+
+.send-button {
+  background-color: var(--riskwatch-yellow) !important;
+  border-color: var(--riskwatch-yellow) !important;
+  color: black !important;
+  font-weight: bold;
+}
