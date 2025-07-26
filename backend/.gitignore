@@ -1,0 +1,14 @@
+# Environment variables
+# Never commit this file!
+/backend/.env
+
+# Admin creation script (one-time use only)
+create_admin.py
+
+# Python specific
+__pycache__/
+*.pyc
+
+# Frontend specific
+/frontend/node_modules
+/frontend/dist
