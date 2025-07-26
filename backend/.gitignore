@@ -1,6 +1,6 @@
 # Environment variables
 # Never commit this file!
-/backend/.env
+.env
 
 # Admin creation script (one-time use only)
 create_admin.py
